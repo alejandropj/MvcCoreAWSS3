@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "UploadFile";
+}
+
+<h1 class="text-primary">Upload File AWS</h1>
+
+<a asp-controller="AWSFiles"
+   asp-action="Index">
+    Volver
+</a>
+
+<form method="post" enctype="multipart/form-data">
+    <label>Seleccione un fichero</label>
+    <input type="file" name="file" class="form-control" />
+    <button class="btn btn-info">Upload File</button>
+</form>

@@ -1,7 +1,13 @@
+using Amazon.S3;
+using MvcCoreAWSS3.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddAWSService<IAmazonS3>();
+builder.Services.AddTransient<ServiceStorageS3>();
 
 var app = builder.Build();
 

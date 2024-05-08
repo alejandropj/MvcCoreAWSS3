@@ -1,0 +1,29 @@
+﻿@model List<string>
+@{
+    ViewData["Title"] = "Index";
+    string url = ViewData["DATOS"] as string;
+}
+
+<h1>AWS Storage S3</h1>
+
+<a class="btn btn-success" asp-controller="AWSFiles"
+asp-action="UploadFile">
+    Upload File AWS
+</a>
+
+<h2>Lista de Archivos</h2>
+<ul class="list-group">
+    @foreach(string fileName in Model){
+        <li class="list-group-item">
+            <img src="@url@fileName" style="width:150px" />
+            - @fileName
+            <a class="btn btn-warning" asp-controller="AWSFiles"
+               asp-action="GetPrivateFile"
+               asp-route-filename="@fileName">Get Private File</a>
+
+            <a class="btn btn-danger" asp-controller="AWSFiles"
+                asp-action="DeleteFile"
+                asp-route-filename="@fileName">Delete File</a>
+        </li>
+    }
+</ul>
