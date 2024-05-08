@@ -2,6 +2,9 @@
 @{
     ViewData["Title"] = "Index";
     string url = ViewData["DATOS"] as string;
+
+    //Version 2
+    string bucketName = configuration.GetValue<string>("AWS:BucketURL");
 }
 
 <h1>AWS Storage S3</h1>
@@ -16,6 +19,7 @@ asp-action="UploadFile">
     @foreach(string fileName in Model){
         <li class="list-group-item">
             <img src="@url@fileName" style="width:150px" />
+            <img src="@bucketName@fileName" style="width:150px" />
             - @fileName
             <a class="btn btn-warning" asp-controller="AWSFiles"
                asp-action="GetPrivateFile"
